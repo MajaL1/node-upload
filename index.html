@@ -3,19 +3,13 @@
 <head>
 	<title>Node.js Basic File Upload</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="jquery.form.js"></script>
 	<script>
 		$(function() {
-			var timer = setInterval(function() {
-				if('#file').val() !== '') {
-					clearInterval(timer);
-					$('#form').submit();
-				}
-			})	
-			$('#form').submit(function() {
-				$(this).ajaxSubmit({
-					success: function() {
-						console.log('complete!');
+			$('#generate').click(function() {
+				$.ajax({
+					url: 'https://www.random.org/integers/?num=10&min=1&max=5&col=1&base=10&format=plain&rnd=new',
+					success: function(data) {
+						$('#numbers').html(data);
 					}
 				})
 			})
@@ -28,5 +22,9 @@
 		<input type="file" name="file" id="file" /><br><br>
 		<input type="submit" value="Upload" />
 	</form>
+	<hr>
+	<h3>Random numbers generator</h3>
+	<input type="button" id="generate" />
+	<p id="numbers"></p>
 </body>
 </html>
