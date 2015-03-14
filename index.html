@@ -8,6 +8,9 @@
 			$('#generate').click(function() {
 				$.ajax({
 					url: 'https://www.random.org/integers/?num=10&min=1&max=5&col=1&base=10&format=plain&rnd=new',
+					beforeSend: function() {
+						$('#numbers').html('Getting 5 random numbers...');
+					}
 					success: function(data) {
 						$('#numbers').html(data);
 					}
@@ -24,7 +27,7 @@
 	</form>
 	<hr>
 	<h3>Random numbers generator</h3>
-	<input type="button" id="generate" />
+	<input type="button" id="generate" value="Get" />
 	<p id="numbers"></p>
 </body>
 </html>
