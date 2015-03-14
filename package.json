@@ -1,15 +1,15 @@
 {
- 	"name": "file_upload",
-  	"version": "0.0.1",
-  	"dependencies": {
-    	"express": "~4.12.2",
-    	"multer": "~0.1.8"
-  	},
-  	"scripts": {	
-  		"start": "node server.js"
-  	},
-  	"engines": {
-   		"node": "0.10.x",
-   		"npm": "2.1.x"
-  	}
+  "name": "file_upload",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "~4.12.2",
+    "formidable": "^1.0.17"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.1.x"
+  }
 }

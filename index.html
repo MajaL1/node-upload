@@ -5,6 +5,27 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script>
 		$(function() {
+			$('#form').submit(function(e) {
+				e.preventDefault();
+				var testz = new FormData();
+				testz.append('filez', $('#filez')[0].files[0]);
+				console.log(testz);
+				$.ajax({
+					url: '/',
+					data: testz,
+					processData: false,
+					contentType: false,
+					beforeSend: function() {
+						console.log('sending now...');
+					},
+					method: 'POST',
+					success: function(res) {
+						console.log(res);
+						console.log('woot');
+						$('.per').html(res);
+					}
+				})
+			});
 			$('#generate').click(function() {
 				$.ajax({
 					url: 'https://www.random.org/integers/?num=10&min=1&max=100&col=1&base=10&format=plain&rnd=new',
@@ -28,11 +49,12 @@
 	<p>
 		<b>Note: </b>Please choose a large file size.
 	</p>
-	<form method="post" enctype="multipart/form-data" action="/" id="form">
-		<input type="file" name="file" id="file" /><br><br>
+	<form method="post" enctype="multipart/form-data" id="form">
+		<input type="file" name="filez" id="filez" /><br><br>
 		<input type="submit" value="Upload" />
 	</form>
-	<br>
+	<p class="per"></p>
+	<br>	
 	<hr>
 	<h3>Random numbers generator</h3>
 	<p>
