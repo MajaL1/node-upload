@@ -10,7 +10,7 @@
 					url: 'https://www.random.org/integers/?num=10&min=1&max=5&col=1&base=10&format=plain&rnd=new',
 					beforeSend: function() {
 						$('#numbers').html('Getting 5 random numbers...');
-					}
+					},
 					success: function(data) {
 						$('#numbers').html(data);
 					}
