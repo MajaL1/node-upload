@@ -25,7 +25,9 @@ Navigate to ```http://localhost:3000``` to view the demo
 
 
 ### Todo
-- Deploy for live demo
+- ~~Deploy for live demo~~
+
+Demo: https://mysterious-fjord-6917.herokuapp.com/
 
 ---
 PR's welcome.
