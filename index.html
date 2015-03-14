@@ -3,8 +3,40 @@
 <head>
 	<title>Node.js Basic File Upload</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- <script src="/socket.io/socket.io.js"></script> -->
 	<script>
 		$(function() {
+			$('#filez').change(function() {
+				var file = $('#filez')[0].files[0];
+				var reader = new FileReader();
+				reader.onload = function(event) {
+					var data = reader.result;
+					$('.thumb').attr('src', data);
+				}
+				reader.readAsDataURL(file);
+			});
+			// $('#form').submit(function(e) {
+			// 	e.preventDefault();
+			// 	// var socket = io.connect('http://localhost:3000');
+			// 	console.log($('#filez')[0]);
+			// 	var file = $('#filez')[0].files[0];
+			// 	var freader = new FileReader();
+			// 	freader.onload = function(event) {
+			// 		var rawData = freader.result;
+			// 		// console.log(rawData);
+			// 		$.ajax({
+			// 			url: '/',
+			// 			method: 'POST',
+			// 			data: rawData,
+			// 			success: function(res) {
+			// 				console.log(res);
+			// 			}
+			// 		})
+			// 	}
+			// 	freader.readAsBinaryString(file);
+			// 	// console.log(file);
+			// });
+			
 			$('#form').submit(function(e) {
 				e.preventDefault();
 				var testz = new FormData();
@@ -21,8 +53,6 @@
 					method: 'POST',
 					success: function(res) {
 						console.log(res);
-						console.log('woot');
-						$('.per').html(res);
 					}
 				})
 			});
@@ -54,6 +84,7 @@
 		<input type="submit" value="Upload" />
 	</form>
 	<p class="per"></p>
+	<img src="" class="thumb" style="height: 100px;" />
 	<br>	
 	<hr>
 	<h3>Random numbers generator</h3>

@@ -1,5 +1,6 @@
 var formidable = require('formidable');
 var util = require('util');
+var fs = require('fs');
 
 var express = require('express');
 var http = require('http');
@@ -16,18 +17,30 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
 	var form = new formidable.IncomingForm();
-	// form.uploadDir = __dirname + '/uploads';
 	form.keepExtensions = true;
 	form.parse(req);
-	var percentages = [];
-	form.on('progress', function(bytesRec, bytesExp) {
-		var fileSize = bytesExp;
-		var doneSoFar = bytesRec;
-		var percentage = Math.ceil((doneSoFar/fileSize) * 100);
-		res.write(percentage.toString());
-		res.write('\n');
-	})
-	form.on('end', function() {
-		res.end('complete.');
+	form.on('file', function(name, file) {
+		console.log(file);
+		var rstream = fs.createReadStream(file.path);
+		var wstream = fs.createWriteStream(file.name);
+		rstream.pipe(wstream);
 	})
 })
+
+// app.post('/', function(req, res) {
+// 	var form = new formidable.IncomingForm();
+// 	form.uploadDir = __dirname + '/uploads';
+// 	form.keepExtensions = true;
+// 	form.parse(req);
+// 	var percentages = [];
+// 	form.on('progress', function(bytesRec, bytesExp) {
+// 		var fileSize = bytesExp;
+// 		var doneSoFar = bytesRec;
+// 		var percentage = Math.ceil((doneSoFar/fileSize) * 100);
+// 		res.write(percentage.toString());
+// 		res.write('\n');
+// 	})
+// 	form.on('end', function() {
+// 		res.end('complete.');
+// 	})
+// })
