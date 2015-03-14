@@ -2,11 +2,30 @@
 <html>
 <head>
 	<title>Node.js Basic File Upload</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="jquery.form.js"></script>
+	<script>
+		$(function() {
+			var timer = setInterval(function() {
+				if('#file').val() !== '') {
+					clearInterval(timer);
+					$('#form').submit();
+				}
+			})	
+			$('#form').submit(function() {
+				$(this).ajaxSubmit({
+					success: function() {
+						console.log('complete!');
+					}
+				})
+			})
+		})
+	</script>
 </head>
 <body>
 	<h1>Node.js file uploads</h1>
-	<form method="post" enctype="multipart/form-data" action="/upload">
-		<input type="file" name="file" /><br><br>
+	<form method="post" enctype="multipart/form-data" action="/upload" id="form">
+		<input type="file" name="file" id="file" /><br><br>
 		<input type="submit" value="Upload" />
 	</form>
 </body>
