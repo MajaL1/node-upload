@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
 	var form = new formidable.IncomingForm();
-	form.uploadDir = __dirname + '/uploads';
+	// form.uploadDir = __dirname + '/uploads';
 	form.keepExtensions = true;
 	form.parse(req);
 	var percentages = [];
