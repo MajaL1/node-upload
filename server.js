@@ -26,10 +26,15 @@ app.get('/', function(req, res) {
 	res.sendfile('./index.html');
 })
 
-app.post('/upload', function(req, res) {
+app.post('/', function(req, res) {
 	res.write(JSON.stringify(req.files));
 	res.end('\n\n\nfile uploaded!\n');
 })
+
+// app.post('/upload', function(req, res) {
+// 	res.write(JSON.stringify(req.files));
+// 	res.end('\n\n\nfile uploaded!\n');
+// })
 
 app.listen(process.env.PORT || 3000, function() {
 	console.log('listening on port 3000');

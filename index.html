@@ -7,9 +7,9 @@
 		$(function() {
 			$('#generate').click(function() {
 				$.ajax({
-					url: 'https://www.random.org/integers/?num=10&min=1&max=5&col=1&base=10&format=plain&rnd=new',
+					url: 'https://www.random.org/integers/?num=10&min=1&max=100&col=1&base=10&format=plain&rnd=new',
 					beforeSend: function() {
-						$('#numbers').html('Getting 5 random numbers...');
+						$('#numbers').html('Getting 10 random numbers...');
 					},
 					success: function(data) {
 						$('#numbers').html(data);
@@ -21,12 +21,24 @@
 </head>
 <body>
 	<h1>Node.js file uploads</h1>
-	<form method="post" enctype="multipart/form-data" action="/upload" id="form">
+	<p>
+		Welcome to a basic demo for Node.js file uploads using <a href="https://github.com/expressjs/multer" target="blank">multer</a>. The basic idea of this demo is to show the async nature of file uploads using
+		node, express and multer.
+	</p>
+	<p>
+		<b>Note: </b>Please choose a large file size.
+	</p>
+	<form method="post" enctype="multipart/form-data" action="/" id="form">
 		<input type="file" name="file" id="file" /><br><br>
 		<input type="submit" value="Upload" />
 	</form>
+	<br>
 	<hr>
 	<h3>Random numbers generator</h3>
+	<p>
+		<b>Note: </b>You can use this while the file is uploading. It performs an AJAX request to generate 10 random integers between 1 and 100.
+		Check out the Network tab of your Browser dev tools for more info.
+	</p>
 	<input type="button" id="generate" value="Get" />
 	<p id="numbers"></p>
 </body>
