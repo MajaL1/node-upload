@@ -1,5 +1,5 @@
 {
-  "name": "file_upload",
+  "name": "node_upload",
   "version": "0.0.1",
   "dependencies": {
     "express": "~4.12.2",
@@ -12,5 +12,24 @@
   "engines": {
     "node": "0.10.x",
     "npm": "2.1.x"
-  }
+  },
+  "description": "test project for uploading files",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MajaL1/node-upload-img.git"
+  },
+  "keywords": [
+    "node",
+    "file",
+    "upload",
+    "socket"
+  ],
+  "author": "MajaL1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MajaL1/node-upload-img/issues"
+  },
+  "homepage": "https://github.com/MajaL1/node-upload-img#readme"
 }
