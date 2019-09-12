@@ -1,32 +1,16 @@
 {
-  "name": "node_upload",
-  "version": "0.0.1",
-  "dependencies": {
-    "express": "~4.12.2",
-    "formidable": "^1.0.17",
-    "socket.io": "^1.3.5"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": "0.10.x",
-    "npm": "2.1.x"
-  },
-  "description": "test project for uploading files",
+  "name": "node-upload-img",
+  "version": "1.0.0",
+  "description": "File upload with angular 2 and node.js",
   "main": "server.js",
-  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MajaL1/node-upload-img.git"
   },
-  "keywords": [
-    "node",
-    "file",
-    "upload",
-    "socket"
-  ],
-  "author": "MajaL1",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MajaL1/node-upload-img/issues"
