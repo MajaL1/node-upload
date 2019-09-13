@@ -1,5 +1,5 @@
 {
-  "name": "node-upload-img",
+  "name": "node-upload",
   "version": "1.0.0",
   "description": "File upload with angular 2 and node.js",
   "main": "server.js",
@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MajaL1/node-upload-img/issues"
+    "url": "https://github.com/MajaL1/node-upload/issues"
   },
-  "homepage": "https://github.com/MajaL1/node-upload-img#readme"
+  "homepage": "https://github.com/MajaL1/node-upload#readme"
 }
